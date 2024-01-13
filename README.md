@@ -33,4 +33,11 @@ Laravel was chosen for this project due to its:
 
    ```sh
    git clone https://github.com/your-username/real-estate-api.git
-   cd real-estate-api
+   cd real-estate-api```
+
+2. **Clone the Repository**
+
+   ```sh
+   git clone https://github.com/your-username/real-estate-api.git
+   cd real-estate-api```
+
