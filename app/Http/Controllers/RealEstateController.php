@@ -14,7 +14,7 @@ class RealEstateController extends Controller
      */
     public function index()
     {
-         $realEstates = RealEstate::all();
+         $realEstates = RealEstate::select('id', 'name', 'real_state_type', 'city', 'country')->get();
          return response()->json($realEstates);
     }
 
@@ -63,7 +63,7 @@ class RealEstateController extends Controller
      */
     public function show(string $id)
     {
-        $realEstate = RealEstate::find($id);
+        $realEstate = RealEstate::findOrFail($id);
         return response()->json($realEstate);
     }
 

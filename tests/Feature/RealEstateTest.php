@@ -26,7 +26,7 @@ class RealEstateTest extends TestCase
 
     $response->assertStatus(200);
     $response->assertJsonStructure([
-        '*' => ['id', 'name', 'real_state_type', 'street'] // include all relevant fields
+        '*' => ['id', 'name', 'real_state_type', 'city', 'country']
     ]);
 }
 public function test_can_create_real_estate()
@@ -42,7 +42,7 @@ public function test_can_create_real_estate()
         'country' => 'US', // Use a valid ISO 3166-Alpha2 country code
         'rooms' => 3,
         'bathrooms' => 1.5, // Can be a decimal
-        'comments' => 'Some comments here' // Optional
+        'comments' => 'Hello, Would love to join the company' // Optional
     ];
 
     $response = $this->post('/api/real-estates', $realEstateData);
@@ -53,7 +53,6 @@ public function test_can_create_real_estate()
 public function test_can_show_real_estate()
 {
     $realEstate = RealEstate::first();
-    // $realEstate = RealEstate::factory()->create();
     $response = $this->get("/api/real-estates/{$realEstate->id}");
 
     $response->assertStatus(200);
@@ -64,8 +63,7 @@ public function test_can_update_real_estate()
     $realEstate = RealEstate::first();
 
     $updatedData = [
-        'name' => 'Updated Name',
-        // ... other updated data ...
+        'name' => 'Lebron James',
     ];
 
     $response = $this->put("/api/real-estates/{$realEstate->id}", $updatedData);
