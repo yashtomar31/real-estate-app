@@ -114,7 +114,9 @@ class RealEstateController extends Controller
      */
     public function destroy(string $id)
     {
-        RealEstate::findOrFail($id)->delete();
-        return response()->json(null, 204);
+        $realEstate = RealEstate::findOrFail($id);
+        $realEstate->delete(); // This should soft-delete the record
+
+        return response()->json($realEstate, 200);
     }
 }

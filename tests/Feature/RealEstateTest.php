@@ -63,7 +63,7 @@ public function test_can_update_real_estate()
     $realEstate = RealEstate::first();
 
     $updatedData = [
-        'name' => 'Lebron James',
+        'name' => 'Manchester United',
     ];
 
     $response = $this->put("/api/real-estates/{$realEstate->id}", $updatedData);
@@ -77,7 +77,11 @@ public function test_can_delete_real_estate()
 
     $response = $this->delete("/api/real-estates/{$realEstate->id}");
 
-    $response->assertStatus(204);
+    $response->assertStatus(200);
+    $realEstate->refresh();
+    $response->assertJson($realEstate->toArray());
+
+    $this->assertSoftDeleted('real_estates', ['id' => $realEstate->id]);
 }
 
 }
