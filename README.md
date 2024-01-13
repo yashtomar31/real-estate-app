@@ -35,38 +35,37 @@ Laravel was chosen for this project due to its:
    git clone https://github.com/your-username/real-estate-api.git
    cd real-estate-api
 
-2. **Install Dependencies
-**
+2. Install Dependencies
+
 
    ```sh
    composer install
 
-3. **Set Up Environment
-**
+3. Set Up Environment
+
 
    ```sh
    cp .env.example .env
 
-4. **Generate Application Key
-**
+4. Generate Application Key
+
 
    ```sh
    php artisan key:generate
 
-5. **Run Migrations
-**
+5. Run Migrations
+
 
    ```sh
    php artisan migrate
 
-6. **Seed the Database (Optional)
-**
+6. Seed the Database (Optional)
+
 
    ```sh
    php artisan db:seed
 
-7. **Running the Project
-  ** 
+7. Running the Project
 	```sh
    php artisan serve
 
