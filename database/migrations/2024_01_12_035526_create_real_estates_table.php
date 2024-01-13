@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('real_estates', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('real_state_type');
-            $table->string('street');
-            $table->integer('external_number');
-            $table->integer('internal_number')->nullable();
-            $table->string('neighborhood');
-            $table->string('city');
-            $table->string('country');
+            $table->string('name', 128);
+            $table->enum('real_state_type', ['house', 'department', 'land', 'commercial_ground']);
+            $table->string('street',128);
+            $table->string('external_number', 12)->nullable();
+            $table->string('internal_number', 12)->nullable();
+            $table->string('neighborhood', 128);
+            $table->string('city',64);
+            $table->string('country', 2); // ISO 3166-Alpha2, two characters
             $table->integer('rooms');
-            $table->integer('bathrooms');
-            $table->text('comments')->nullable();
+            $table->decimal('bathrooms', 8, 2); // Can have decimals
+            $table->string('comments', 128)->nullable();
             $table->timestamps(); // created_at and updated_at
             $table->softDeletes(); // deleted_at for soft deletes
         });
