@@ -46,9 +46,7 @@ Laravel was chosen for this project due to its:
 3. **Set Up Environment**
 
 
-   ```sh
-   cp .env.example .env
-   ```
+   Make sure the table is created and .env file has correct permission to access the data
 
 4. **Generate Application Key**
 
