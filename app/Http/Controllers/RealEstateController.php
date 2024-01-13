@@ -101,6 +101,7 @@ class RealEstateController extends Controller
     ]);
     
         $realEstate->update($validatedData);
+        $realEstate = $realEstate->fresh();
         return response()->json($realEstate);
     } catch (\Exception $e) {
         // Handle the exception (e.g., return an error response)
